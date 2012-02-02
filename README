@@ -1,0 +1,20 @@
+Multiplayer Text Twist:
+
+So this is a project I did in high school... not exactly my best code work, but I figured I might as well publish it on Github.
+
+ 1.) Import as project in Eclipse
+ 
+ 2.) Run by doing the following:
+     - Modify client/Test.java and server/Main.java with appropriate port to communicate with
+     - Run server/Main.java
+     - Run several instances (depending on how many clients you specified in server/Main.java [default: 2]) of client/Test.java
+ 
+ 3.) Enjoy!
+ 
+The client/server sockets communicate just by sending strings to each other. Every command starts with a 5-letter command word followed by appropriate data.
+Here's the protocol: (Let me know if I missed anything)
+- "numbe [number]" = Server assigning a client to a client number
+- "scram [word]" = Server sends client scrambled word to start round
+- "corre [word] [guessType] [clientName] [clientNumber] [scoreUpdate]" = Server tells the client about a correct word guessed (to display as message)
+- "curre [time]" = Server tells client how much time is currently left in the round (server keeps track of time exclusively)
+- "resta " = Server tells client to restart
